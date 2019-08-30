@@ -42,6 +42,7 @@ document.getElementById('test-button').addEventListener('click', function(){
     console.log("targetArticle :", targetArticle);
 
     /* add class 'active' to the correct article */
+    targetArticle.classList.add("active");
   };
 
   const links = document.querySelectorAll(".titles a");
