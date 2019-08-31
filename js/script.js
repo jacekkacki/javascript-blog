@@ -46,4 +46,33 @@
   for (let link of links) {
     link.addEventListener("click", titleClickHandler);
   }
+
+  const generateTitleLinks = function() {
+    console.log("generateTitleLinks working !");
+    /* remove links list from left column */
+
+    const clearLinks = function() {
+      const linkTitles = document.querySelector(".titles");
+      console.log("linkTitles ", linkTitles);
+      linkTitles.innerHTML = "";
+    };
+
+    clearLinks();
+    /* save article id to the const */
+
+    /* find title and save to the const */
+
+    /* create code HTML link and save it */
+
+    /* put the created HTML code into the list of links in the left column */
+    /*
+usuń zawartość listy linków w lewej kolumnie,
+następnie dla każdego artykułu:
+odczytaj jego id i zapisz je do stałej,
+znajdź element z tytułem i zapisz jego zawartość do stałej,
+na podstawie tych informacji stwórz kod HTML linka i zapisz go do stałej,
+wstaw stworzony kod HTML do listy linków w lewej kolumnie.
+*/
+  };
+  generateTitleLinks();
 }
