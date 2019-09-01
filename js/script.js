@@ -56,9 +56,12 @@
       console.log("linkTitles ", linkTitles);
       linkTitles.innerHTML = "";
     };
-
     clearLinks();
+
     /* save article id to the const */
+    const article = document.querySelector(".post");
+    const articleId = article.getAttribute("id");
+    console.log("articleId ", articleId);
 
     /* find title and save to the const */
 
