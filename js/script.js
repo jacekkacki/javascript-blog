@@ -60,22 +60,21 @@
 
     /* save article id to the const */
     const article = document.querySelector(".post");
+    console.log("article ", article);
     const articleId = article.getAttribute("id");
     console.log("articleId ", articleId);
 
     /* find title and save to the const */
+    const titleArticle = document.querySelector(".post h3").innerHTML;
+    console.log("titleArticle ", titleArticle);
 
     /* create code HTML link and save it */
 
+    const codeHtmlLink =
+      "<a href=#" + articleId + "><span>" + titleArticle + "</span></a>";
+    console.log("codeHtmlLink ", codeHtmlLink);
+
     /* put the created HTML code into the list of links in the left column */
-    /*
-usuń zawartość listy linków w lewej kolumnie,
-następnie dla każdego artykułu:
-odczytaj jego id i zapisz je do stałej,
-znajdź element z tytułem i zapisz jego zawartość do stałej,
-na podstawie tych informacji stwórz kod HTML linka i zapisz go do stałej,
-wstaw stworzony kod HTML do listy linków w lewej kolumnie.
-*/
   };
   generateTitleLinks();
 }
