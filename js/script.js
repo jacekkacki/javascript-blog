@@ -69,11 +69,13 @@
     console.log("titleArticle ", titleArticle);
 
     /* create code HTML link and save it */
-
     const codeHtmlLink =
-      "<a href=#" + articleId + "><span>" + titleArticle + "</span></a>";
+      '<li><a href=#"' +
+      articleId +
+      '"><span>' +
+      titleArticle +
+      "</span></a></li>";
     console.log("codeHtmlLink ", codeHtmlLink);
-
     /* put the created HTML code into the list of links in the left column */
   };
   generateTitleLinks();
