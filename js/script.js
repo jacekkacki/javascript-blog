@@ -5,7 +5,6 @@
     event.preventDefault();
     console.log("Link was clicked!");
     console.log(event);
-
     /*[DONE] remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll(".titles a.active");
 
@@ -41,42 +40,49 @@
     targetArticle.classList.add("active");
   };
 
-  const links = document.querySelectorAll(".titles a");
+  /* Create variables */
+  const optArticleSelector = ".post",
+    optTitleSelector = ".post-title",
+    optTitleListSelector = ".titles";
 
-  for (let link of links) {
-    link.addEventListener("click", titleClickHandler);
-  }
-
+  /*Create new title links */
   const generateTitleLinks = function() {
     console.log("generateTitleLinks working !");
-    /* remove links list from left column */
+    /* remove contents of titleList */
+    const titleList = document.querySelector(optTitleListSelector);
+    console.log("titleList ", titleList);
+    titleList.innerHTML = "";
 
-    const clearLinks = function() {
-      const linkTitles = document.querySelector(".titles");
-      console.log("linkTitles ", linkTitles);
-      linkTitles.innerHTML = "";
-    };
-    clearLinks();
+    let html = "";
+    /* for each article */
+    const articles = document.querySelectorAll(optArticleSelector);
+    for (let article of articles) {
+      /* find articleId */
+      let articleId = article.getAttribute("id");
+      console.log("articleId ", articleId);
+      /* find title article */
+      let titleArticle = article.querySelector(optTitleSelector).innerHTML;
+      console.log("titleArticle ", titleArticle);
+      /* create HTML of the link */
+      let linkHTML =
+        '<li><a href="#' +
+        articleId +
+        '"><span>' +
+        titleArticle +
+        "</span></a></li>";
+      console.log("linkHtml ", linkHTML);
+      /* insert link into html variable */
+      html = html + linkHTML;
+      titleList.insertAdjacentHTML("beforeend", html);
+    }
+    titleList.innerHTML = html;
+    /* Add event listener */
+    const links = document.querySelectorAll(".titles a");
+    console.log("links ", links);
 
-    /* save article id to the const */
-    const article = document.querySelector(".post");
-    console.log("article ", article);
-    const articleId = article.getAttribute("id");
-    console.log("articleId ", articleId);
-
-    /* find title and save to the const */
-    const titleArticle = document.querySelector(".post h3").innerHTML;
-    console.log("titleArticle ", titleArticle);
-
-    /* create code HTML link and save it */
-    const codeHtmlLink =
-      '<li><a href=#"' +
-      articleId +
-      '"><span>' +
-      titleArticle +
-      "</span></a></li>";
-    console.log("codeHtmlLink ", codeHtmlLink);
-    /* put the created HTML code into the list of links in the left column */
+    for (let link of links) {
+      link.addEventListener("click", titleClickHandler);
+    }
   };
   generateTitleLinks();
 }
