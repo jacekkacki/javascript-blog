@@ -4,6 +4,7 @@
 
 $color-light: #fff;
 $color-dark: #444;
+$color-link: #2980b9;
 
 $font-logo: "Sacramento", cursive;
 $font-header: "Oswald", sans-serif;
@@ -119,5 +120,8 @@ body {
   display: flex;
   p {
     margin: 0 10px 0 0;
+  }
+  li {
+    margin-right: 5px;
   }
 }
