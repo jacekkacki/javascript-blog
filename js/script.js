@@ -87,6 +87,16 @@
 
   generateTitleLinks();
 
+  function calculateTagsParams(tags) {
+    const params = {max: '0', min:'999999'};
+    for(let tag in tags){
+      console.log(tag + ' is used ' + tags[tag] + ' times');
+      params.max = Math.max(tags[tag], params.max);
+      params.min = Math.min(tags[tag], params.min);
+    }
+    return params;
+  }
+
   /* Generate tag links */
   function generateTags() {
     /* [NEW] create a new variable allTags with an empty object */
@@ -119,8 +129,10 @@
         if(!allTags.hasOwnProperty(tag)){
         /* [NEW] add generated code to allTags array */
           allTags[tag] = 1;
+          console.log('allTags ', allTags);
         } else {
           allTags[tag]++;
+          console.log('allTags ', allTags);
         }
       }
       /* END LOOP: for each tag */
@@ -130,13 +142,15 @@
     }
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams: ', tagsParams);
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
 
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
       /* [NEW] generate code of a link and it to allTagsHTML */
-      allTagsHTML +='<li><a href="#' + tag + '">' + tag + '(' + allTags[tag] + ')</a></li>';
+      allTagsHTML +='<li><a href="#tag-' + tag + '">' + tag + '(' + allTags[tag] + ')</a></li>';
     }
     /* [NEW] END LOOP: for each tag in allTags: */
 
