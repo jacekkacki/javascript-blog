@@ -126,3 +126,34 @@ body {
     margin-right: 5px;
   }
 }
+
+.tags {
+
+  li {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 20px;
+  }
+
+}
+
+.tag-size-1 {
+  font-size: 60%;
+  color: #6c5ce7;
+}
+.tag-size-2 {
+  font-size: 70%;
+  color: #0984e3;
+}
+.tag-size-3 {
+  font-size: 80%;
+  color: #74b9ff;
+}
+.tag-size-4 {
+  font-size: 90%;
+  color: #00cec9;
+}
+.tag-size-5 {
+  font-size: 100%;
+  color: #81ecec;
+}
