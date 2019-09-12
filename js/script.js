@@ -164,7 +164,6 @@
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
       /* [NEW] generate code of a link and it to allTagsHTML */
-      //      const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
       console.log('tag ', tag);
       allTagsData.tags.push({
         tag: tag,
@@ -269,19 +268,19 @@
       }
       /* [NEW] find list of tags in right column */
       const authorListRight = document.querySelector(opt.authorsListSelector);
-      /* [NEW] create variable for all links HTML code */
-      let allAuthorsHTML = '';
+      /* [NEW] create object allAuthorsData for handsbar */
+      const allAuthorsData = {authors: []};
       /* [NEW] START LOOP: for each author in allAuthors: */
       for(let author in allAuthors){
-        /* [NEW] generate code of a link and it to allAuthorsHTML */
-        console.log('author ', author);
-        const authorLinkHTML = '<li><a  href="#' + author + '">' + author + ' (' + allAuthors[author] + ')</a></li>';
-        console.log('authorLinkHTML: ', authorLinkHTML);
-        allAuthorsHTML += authorLinkHTML;
+        /* [NEW] generate code link authorListRight */
+        allAuthorsData.authors.push({
+          author: author,
+          count: allAuthors[author]
+        });
         /* [NEW] END LOOP: for each author in allAuthors: */
       }
       /* [NEW] add html from allAuthorsHTML to authorListRight */
-      authorListRight.innerHTML = allAuthorsHTML;
+      authorListRight.innerHTML = templates.authorLinkRight(allAuthorsData);
       /* insert HTML of all the links into the tags wrapper */
       authorList.innerHTML = html;
       /* END LOOP: for each author */
